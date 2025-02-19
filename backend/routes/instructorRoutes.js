@@ -3,18 +3,26 @@ const Instructor = require('../models/Instructor');
 
 const router = express.Router();
 
-// Get all instructors
+// GET all instructors
 router.get('/', async (req, res) => {
-  const instructors = await Instructor.find();
-  res.json(instructors);
+  try {
+    const instructors = await Instructor.find();
+    res.json(instructors);
+  } catch (error) {
+    res.status(500).json({ message: "Server Error", error });
+  }
 });
 
-// Add an instructor
+// POST a new instructor
 router.post('/', async (req, res) => {
-  const { name, email } = req.body;
-  const instructor = new Instructor({ name, email });
-  await instructor.save();
-  res.status(201).json(instructor);
+  try {
+    const { name, email } = req.body;
+    const newInstructor = new Instructor({ name, email });
+    await newInstructor.save();
+    res.status(201).json(newInstructor);
+  } catch (error) {
+    res.status(500).json({ message: "Error creating instructor", error });
+  }
 });
 
 module.exports = router;
