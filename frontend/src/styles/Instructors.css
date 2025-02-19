@@ -1,0 +1,28 @@
+.title {
+    text-align: center;
+    font-size: 28px;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .instructor-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .instructor-item {
+    background: #f4f4f4;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .instructor-item:hover {
+    background: #e0e0e0;
+    transform: scale(1.02);
+  }
+  
