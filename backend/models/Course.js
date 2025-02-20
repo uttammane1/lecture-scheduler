@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const courseSchema = new mongoose.Schema({
-  name: String,
-  level: String,
-  description: String,
-  image: String,
+const CourseSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  level: { type: String, required: true },
+  description: { type: String },
+  image: { type: String },
 });
 
-module.exports = mongoose.model('Course', courseSchema);
+module.exports = mongoose.model("Course", CourseSchema);
